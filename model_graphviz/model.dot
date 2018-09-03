@@ -1,0 +1,13 @@
+digraph G{
+    node [shape=record]
+    a[label="ResNet50|{input:|output:}|{(224, 224, 3)|(2048)}"]
+    b[label="InceptionV3|{input:|output:}|{(299, 299, 3)|(2048)}"]
+    c[label="Xception|{input:|output:}|{(299, 299, 3)|(2048)}"]
+    Merge[label="Merge|{input:|output:}|{(3, 2048)|(6144)}"]
+    Dropout[label="Dropout|Rate:|0.5"]
+    Output[label="Output|{input:|output:}|{(6144)|(1)}"]
+    Image -> a -> Merge
+    Image -> b -> Merge
+    Image -> c -> Merge
+    Merge -> Dropout -> Output
+}
