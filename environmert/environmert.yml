@@ -2,6 +2,8 @@ name: cat_vs_dog
 channels:
 - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
 - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+- https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+- https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
 - defaults
 dependencies:
 - openssl=1.0.2j=0
@@ -29,6 +31,7 @@ dependencies:
   - entrypoints==0.2.2
   - enum34==1.1.6
   - gast==0.2.0
+  - graphviz==0.9
   - grpcio==1.10.0
   - h5py==2.7.1
   - html5lib==0.9999999
@@ -63,6 +66,7 @@ dependencies:
   - protobuf==3.5.2
   - ptyprocess==0.5.1
   - pydot==1.2.2
+  - pydot-ng==1.0.0
   - pygments==2.1.3
   - pyparsing==2.1.10
   - python-dateutil==2.5.3
@@ -79,7 +83,7 @@ dependencies:
   - six==1.10.0
   - sklearn==0.0
   - tensorboard==1.6.0
-  - tensorflow==1.6.0
+  - tensorflow==1.3.0
   - tensorflow-tensorboard==0.4.0
   - termcolor==1.1.0
   - terminado==0.6
@@ -91,4 +95,5 @@ dependencies:
   - wcwidth==0.1.7
   - werkzeug==0.14.1
   - widgetsnbextension==1.2.6
+prefix: /Users/miclaelmiao/anaconda2/envs/cat_vs_dog
 
