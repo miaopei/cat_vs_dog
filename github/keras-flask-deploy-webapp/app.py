@@ -39,12 +39,14 @@ def model_predict(img_path, model):
 
     # Preprocessing the image
     x = image.img_to_array(img)
+    print(x.shape)
     # x = np.true_divide(x, 255)
     x = np.expand_dims(x, axis=0)
 
     # Be careful how your trained model deals with the input
     # otherwise, it won't make correct prediction!
     x = preprocess_input(x, mode='caffe')
+    print(x.shape)
 
     preds = model.predict(x)
     return preds

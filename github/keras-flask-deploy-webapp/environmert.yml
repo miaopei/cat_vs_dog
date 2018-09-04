@@ -96,4 +96,5 @@ dependencies:
   - wcwidth==0.1.7
   - werkzeug==0.14.1
   - widgetsnbextension==1.2.6
+prefix: /home/miaopei/anaconda2/envs/keras-flask-deploy-webapp
 
