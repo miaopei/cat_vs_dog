@@ -20,7 +20,7 @@ from gevent.pywsgi import WSGIServer
 app = Flask(__name__)
 
 # Model saved with Keras model.save()
-MODEL_PATH = 'models/model.h5'
+MODEL_PATH = 'models/ResNet50_catdog_model.h5'
 
 # Load your trained model
 model = load_model(MODEL_PATH)
@@ -35,21 +35,19 @@ print('Model loaded. Start serving...')
 
 
 def model_predict(img_path, model):
+    describe = []
     img = image.load_img(img_path, target_size=(224, 224))
-
-    # Preprocessing the image
     x = image.img_to_array(img)
-    print(x.shape)
-    # x = np.true_divide(x, 255)
     x = np.expand_dims(x, axis=0)
+    x = preprocess_input(x)
 
-    # Be careful how your trained model deals with the input
-    # otherwise, it won't make correct prediction!
-    x = preprocess_input(x, mode='caffe')
-    print(x.shape)
-
-    preds = model.predict(x)
-    return preds
+    prediction = model.predict(x)
+    if prediction < 0.5:
+        describe.append('cat %.2f%%' % (100 -prediction*100))
+    else:
+        describe.append('dog %.2f%%' % (prediction*100))
+    
+    return describe
 
 
 @app.route('/', methods=['GET'])
@@ -75,15 +73,16 @@ def upload():
 
         # Process your result for human
         # pred_class = preds.argmax(axis=-1)            # Simple argmax
-        pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
-        result = str(pred_class[0][0][1])               # Convert to string
+        #pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
+        #result = str(pred_class[0][0][1])               # Convert to string
+        result = str(preds[0])
         return result
     return None
 
 
 if __name__ == '__main__':
-    # app.run(port=5002, debug=True)
+    app.run(host='192.168.2.76', port=5088, debug=True)
 
     # Serve the app with gevent
-    http_server = WSGIServer(('192.168.2.76', 5088), app)
-    http_server.serve_forever()
+    #http_server = WSGIServer(('192.168.2.76', 5088), app)
+    #http_server.serve_forever()
