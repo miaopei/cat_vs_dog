@@ -95,5 +95,4 @@ dependencies:
   - wcwidth==0.1.7
   - werkzeug==0.14.1
   - widgetsnbextension==1.2.6
-prefix: /Users/miclaelmiao/anaconda2/envs/cat_vs_dog
 

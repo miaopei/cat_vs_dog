@@ -22,17 +22,10 @@ app = Flask(__name__)
 # Model saved with Keras model.save()
 MODEL_PATH = 'models/ResNet50_catdog_model.h5'
 
-# Load your trained model
+# Load trained model
 model = load_model(MODEL_PATH)
 model._make_predict_function()          # Necessary
 print('Model loaded. Start serving...')
-
-# You can also use pretrained model from Keras
-# Check https://keras.io/applications/
-#from keras.applications.resnet50 import ResNet50
-#model = ResNet50(weights='imagenet')
-#print('Model loaded. Check http://127.0.0.1:5000/')
-
 
 def model_predict(img_path, model):
     describe = []
@@ -70,12 +63,8 @@ def upload():
 
         # Make prediction
         preds = model_predict(file_path, model)
-
-        # Process your result for human
-        # pred_class = preds.argmax(axis=-1)            # Simple argmax
-        #pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
-        #result = str(pred_class[0][0][1])               # Convert to string
         result = str(preds[0])
+
         return result
     return None
 
@@ -86,3 +75,4 @@ if __name__ == '__main__':
     # Serve the app with gevent
     http_server = WSGIServer(('192.168.2.76', 5088), app)
     http_server.serve_forever()
+
