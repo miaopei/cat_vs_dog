@@ -70,9 +70,9 @@ def upload():
 
 
 if __name__ == '__main__':
-    #app.run(host='192.168.2.76', port=5088, debug=True)
+    app.run(port=5088, debug=True)
 
     # Serve the app with gevent
-    http_server = WSGIServer(('192.168.2.76', 5088), app)
-    http_server.serve_forever()
+    #http_server = WSGIServer(('192.168.2.76', 5088), app)
+    #http_server.serve_forever()
 
