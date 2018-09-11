@@ -61,7 +61,7 @@ $$ LogLoss = -\frac{1}{n}\sum_{i=1}^n [y_ilog(\hat{y}_i)+(1-y_i)log(1- \hat{y}_i
 ### 设计大纲
 ---
 
-![](Z:\workdir\github\DeepLearning\cat_vs_dog\source\model.png)
+<img src="source/model.png">
 
 **1. 数据预处理**
 
