@@ -22,10 +22,6 @@ kaggle一共举行过两次猫狗大战的比赛，第一次是在2013年，那�
 
 从问题的描述可以发现，kaggle猫狗大战竞赛是一个典型的“单标签图像分类”问题，即给定一张图片，系统需要预测出图像属于预先定义类别中的哪一类。在计算机视觉领域，目前解决这类问题的核心技术框架是深度学习（Deep Learning），特别地，针对图像类型的数据，是深度学习中的卷积神经网络（Convolutional Neural Networks, ConvNets）架构。卷积神经网络是一种特殊的神经网络结构，即通过卷积操作可以实现对图像特征的自动学习，选取那些有用的视觉特征以最大化图像分类的准确率。
 
-- 数据集中大部分图片是正常的，有少部分异常图片和低分辨率图片，对于训练集来说这些异常数据是要剔除掉的。
-- 数据集中的文件名是以type.num.jpg方式命名的，比如cat.0.jpg。使用 Keras 的 ImageDataGenerator 需要将不同种类的图片分在不同的文件夹中。
-- 数据集中的图像大小是不固定的，但是神经网络输入节点的个数是固定的。所以在将图像的像素作为输入之前，需要将图像的大小进行resize。
-
 ### 输入数据
 ---
 
@@ -46,7 +42,7 @@ sample_submission.csv 需要将最终测试集的测试结果写入.csv 文件�
 使用深度学习方法识别一张图片是猫还是狗，这是一个二分类问题。1表示分类结果是狗，0表示分类结果是猫。
 
 - 输入：一张彩色图片
-- 输出：是猫还是狗
+- 输出：狗的概率
 
 ### 解决办法
 ---
@@ -114,8 +110,22 @@ Kera的应用模块Application提供了带有预训练权重的Keras模型，这
 
 [1] Karen Simonyan and Andrew Zisserman. VERY DEEP CONVOLUTIONAL NETWORKS FOR LARGE- SCALE IMAGE RECOGNITION. At ICLR,2015. 
 
-[2] Jeff Donahue, Yangqing Jia, Oriol Vinyals, Judy Hoffman, Ning Zhang, Eric Tzeng and Trevor Darrell.DeCAF: A Deep Convolutional Activation Feature for Generic Visual Recognition.In ICML,2014.
+[2] K. Simonyan and A. Zisserman. Very deep convolutional networks for large-scale image recognition. In ICLR, 2015.
 
-[3] K. Simonyan and A. Zisserman. Very deep convolutional networks for large-scale image recognition. In ICLR, 2015.
+[3] K. He, X. Zhang, S. Ren, and J. Sun. Deep residual learning for image recognition. arXiv preprint arXiv:1512.03385, 2015.
 
-[4] K. He, X. Zhang, S. Ren, and J. Sun. Deep residual learning for image recognition. arXiv preprint arXiv:1512.03385, 2015.
+[4] Ioffe S, Szegedy C. Batch normalization: Accelerating deep network training by reducing internal covariate shift[J]. arXiv preprint arXiv:1502.03167, 2015. 
+
+[5] Building powerful image classification models using very little data. https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html
+
+[6] Dogs vs. Cats: Image Classification with Deep Learning using TensorFlow in Python. https://www.datasciencecentral.com/profiles/blogs/dogs-vs-cats-image-classification-with-deep-learning-using
+
+[7] ImageNet: VGGNet, ResNet, Inception, and Xception with Keras. https://www.pyimagesearch.com/2017/03/20/imagenet-vggnet-resnet-inception-xception-keras/
+
+[8] The residual module in ResNet as originally proposed by He et al. in 2015. 
+
+[9] Going Deeper with Convolutions. arXiv:1409.4842, 2014.
+
+[10] Xception: Deep Learning with Depthwise Separable Convolutions. arXiv:1610.02357, 2016.
+
+[11] An Analysis of Deep Neural Network Models for Practical Applications. arXiv:1605.07678, 2017 .
