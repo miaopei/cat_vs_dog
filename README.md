@@ -1,8 +1,6 @@
 # Dogs vs Cats
----
 
 ## 项目说明
----
 
 本项目是优达学城的一个毕业项目。项目要求使用深度学习方法识别一张图片是猫还是狗
 
@@ -10,7 +8,6 @@
 - 输出：是猫还是狗
 
 ## 项目环境
----
 
 项目使用Anaconda搭建环境。可是使用environment目录下的yml进行环境安装。
 
@@ -19,7 +16,6 @@ $ conda env create -f environment.yml
 ```
 
 ## 数据来源
----
 
 数据集来自 kaggle 上的一个竞赛：[Dogs vs. Cats Redux: Kernels Edition](https://www.kaggle.com/c/dogs-vs-cats-redux-kernels-edition/data)。
 
@@ -32,12 +28,10 @@ test 测试集包含了 12500 张猫狗的图片， 每张图片命名规则根�
 sample_submission.csv 需要将最终测试集的测试结果写入.csv 文件中，上传至 kaggle 进行打分。
 
 ## 基准模型
----
 
 项目使用ResNet50, Xception, Inception V3 这三个模型完成。本项目的最低要求是 kaggle Public Leaderboard 前10%。在kaggle上，总共有1314只队伍参加了比赛，所以需要最终的结果排在131位之前，131位的得分是0.06127，所以目标是模型预测结果要小于0.06127。
 
 ## 评估指标
----
 
 kaggle 官方的评估标准是 LogLoss，下面的表达式就是二分类问题的 LogLoss 定义。
 
@@ -53,7 +47,6 @@ $$ LogLoss = -\frac{1}{n}\sum_{i=1}^n [y_ilog(\hat{y}_i)+(1-y_i)log(1- \hat{y}_i
 对数损失越小，代表模型的性能越好。上述评估指标可用于评估该项目的解决方案以及基准模型。
 
 ## 设计大纲
----
 
 <img src="source/model.png">
 
@@ -87,7 +80,6 @@ Kera的应用模块Application提供了带有预训练权重的Keras模型，这
 - 可视化模型训练过程的准确率曲线，损失函数曲线等
 
 ## webapp使用
----
 
 本项目同时也实现了使用 Keras 和 Flask 搭建部署一个简单易用的深度学习图像网页应用，可以通过网页导入一张彩色猫或者狗的图片预测是猫或者狗的概率。
 
