@@ -1,8 +1,0 @@
-raw/
-train/
-val/
-test/
-Images/
-*.csv
-*.zip
-*.h5

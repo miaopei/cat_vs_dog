@@ -63,5 +63,5 @@ target/
 
 image/
 github/keras-flask-deploy-webapp/models/
-webapp/models/
 webapp/uploads/
+webapp/models/ResNet50_catdog_model.h5
