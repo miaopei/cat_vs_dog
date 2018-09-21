@@ -68,11 +68,11 @@ sample_submission.csv 需要将最终测试集的测试结果写入.csv 文件�
 
 <img src="source/test_scatter_diagram.png">
 
-图片高度或者宽度小于 50 的图片：
+通过对图片中的色彩-像素比进行 IQR 分析，可以发现很多分辨率低、无关的图片，下面是其中一些不合格的图片：
 
-<img src="source/bad_img.png">
+<img src="source/train_low_resolution_pictures.png">
 
-经过观察数据，数据集中大部分图片是正常的，有少部分异常图片和低分辨率图片，对于训练集来说这些异常数据是要剔除掉的。
+经过观察数据，数据集中大部分图片是正常的，有少部分异常图片，对于训练集来说这些异常数据是要剔除掉的。
 
 ### 算法和技术
 
@@ -95,8 +95,6 @@ sample_submission.csv 需要将最终测试集的测试结果写入.csv 文件�
 当然，在实际中使用的卷积神经网络要比这个示例的结构更加复杂，自 2012 年的 ImageNet 比赛起，几乎每一年都会有新的网络结构诞生，已经被大家认可的常见网络有 AlexNet, VGG-Net, GoogLeNet, Inception V2-V4, ResNet 等等。这些卷积神经网络都是在 ImageNet 数据集上表现非常优异的神经网络，具体准确率和模型大小如下图所示。
 
 <img src="source/nnarch1-1.png"/>
-
-<img src="source/imagenet_info.png">
 
 #### 模型选择及技术
 
@@ -171,9 +169,17 @@ Xception 取名的由来是 "Extreme Inception"，Inception V3 的演进过程�
 
 ### 数据预处理
 
-通过对图片中的色彩-像素比进行 IQR 分析，可以发现很多分辨率低、无关的图片，经过人工筛选把不合格的图片删除，下面是其中一些不合格的图片：
+对于异常数据的清理采用 [优达学习笔记](https://zhuanlan.zhihu.com/youdanote) 提供的“预处理模型”方法实现异常数据清洗。
 
-<img src="source/train_low_resolution_pictures.png">
+评价 ImageNet 有指标 Top-1 和 Top-5： 
+
+<img src="source/imagenet_info.png">
+
+本项目使用 InceptionV3 top-10 训练train训练集。训练过程中将图片的名称和预测 top-10 的结果保存到字典里，训练结束后保存字典为 `train_decode_predictions.csv`。将模型预测结果与 `ImageNetClasses.csv` 进行异常数据排查。具体实现代码参考 `outlier_detection.ipynb` 。
+
+使用 InceptionV3 模型排查出的异常图片总数为：131张，其中有些图片是正常的，经过筛选后选出 43 张异常图片作为本试验要清理的异常图片。这些异常图片如下图：
+
+<img src="source/outlier_detection.png">
 
 去除异常数据后数据分布如下：
 
