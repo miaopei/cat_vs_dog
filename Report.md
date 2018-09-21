@@ -185,7 +185,7 @@ Xception 取名的由来是 "Extreme Inception"，Inception V3 的演进过程�
 
 <img src="source/new_data_distribution.png">
 
-数据集清洗后，猫的数量：12479，狗的数量：12476，测试集图片数量：12500
+数据集清洗后，猫的数量：12482，狗的数量：12475，测试集图片数量：12500。
 
 由于我们的数据集的文件名是以 type.num.jpg 这样的方式命名的，比如 cat.0.jpg，但是使用 Keras 的 `ImageDataGenerator` 需要将不同种类的图片分在不同的文件夹中，因此我们需要对数据集进行预处理。这里我们采取的思路是创建符号链接(symbol link)，这样的好处是不用复制一遍图片，占用不必要的空间。
 
