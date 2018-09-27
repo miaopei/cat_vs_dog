@@ -1,4 +1,4 @@
-name: keras-flask-deploy-webapp
+name: webapp
 channels:
 - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
 - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/

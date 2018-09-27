@@ -2,6 +2,8 @@ FROM ubuntu:16.04
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+#ENTRYPOINT [ "/bin/bash", "-c" ]
+
 MAINTAINER MiaoPei <miaopei163@163.com.com>
 
 # Install basic dependencies
@@ -33,10 +35,10 @@ WORKDIR app
 
 COPY . .
 
+#ADD environmert.yml .
+
 RUN /opt/conda/bin/conda env create -f environmert.yml
 
-#RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+RUN ["/bin/bash", "-c", "source /opt/conda/bin/activate webapp"]
 
-#RUN ["/bin/bash", "-c", "source /opt/conda/bin/activate /opt/conda/envs/webapp"]
-
-ENTRYPOINT [ "python" , "app.py"]
+ENTRYPOINT [ "/bin/bash", "-c", "source /opt/conda/bin/activate webapp && python app.py"]

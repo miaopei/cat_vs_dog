@@ -33,12 +33,12 @@ ENV LANG C.UTF-8 LC_ALL=C.UTF-8
 
 WORKDIR app
 
-#COPY environmert.yml .
-ADD environmert.yml .
+COPY . .
+
+#ADD environmert.yml .
 
 RUN /opt/conda/bin/conda env create -f environmert.yml
 
-#RUN [ "/bin/bash", "-c", "source activate webapp"]
+RUN ["/bin/bash", "-c", "source /opt/conda/bin/activate webapp"]
 
-#CMD [ "source activate webapp && conda info -e"]
-
+ENTRYPOINT [ "/bin/bash", "-c", "source /opt/conda/bin/activate webapp && python app.py"]
