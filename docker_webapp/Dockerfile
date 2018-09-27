@@ -1,8 +1,8 @@
 FROM ubuntu:16.04
 
-#RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-ENTRYPOINT [ "/bin/bash", "-c" ]
+#ENTRYPOINT [ "/bin/bash", "-c" ]
 
 MAINTAINER MiaoPei <miaopei163@163.com.com>
 
@@ -36,10 +36,9 @@ WORKDIR app
 #COPY environmert.yml .
 ADD environmert.yml .
 
+RUN /opt/conda/bin/conda env create -f environmert.yml
 
-#RUN conda env create -f environmert.yml
+#RUN [ "/bin/bash", "-c", "source activate webapp"]
 
-RUN [ "/bin/bash", "-c", "source activate webapp"]
-
-CMD [ "source activate webapp && conda info -e"]
+#CMD [ "source activate webapp && conda info -e"]
 
