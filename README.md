@@ -94,3 +94,12 @@ Kera的应用模块Application提供了带有预训练权重的Keras模型，这
 本项目同时也实现了使用 Keras 和 Flask 搭建部署一个简单易用的深度学习图像网页应用，可以通过网页导入一张彩色猫或者狗的图片预测是猫或者狗的概率。
 
 具体使用请看webapp/README.md
+
+如果不想搭建环境复现实验结果，可以按照以下操作分分钟复现实验结果：
+
+```shell
+$ docker pull miaowmiaow/webapp:1.1.0
+$ docker run -p 5000:5000 miaowmiaow/webapp:1.1.0
+```
+
+到此就可以在浏览器中输入 [http://localhost:5000](http://localhost:5000) 就可以使用网页对导入的猫狗图片做预测了。
