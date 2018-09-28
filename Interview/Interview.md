@@ -111,7 +111,7 @@
   - **判别模型**直接学习决策函数或者条件概率分布
     - 直观来说，**判别模型**学习的是类别之间的最优分隔面，反映的是不同类数据之间的差异
   - **生成模型**学习的是联合概率分布`P(X,Y)`，然后根据条件概率公式计算 `P(Y|X)`
-    <div align="center"><img src="http://latex.codecogs.com/gif.latex?P(Y|X) = \frac {P(X, Y)}{P(X)}" /></div>
+    <div align="center"><a href="http://latex.codecogs.com/gif.latex?P(Y|X) = \frac {P(X, Y)}{P(X)}"></div>
 
 **两者之间的联系**
 - 由生成模型可以得到判别模型，但由判别模型得不到生成模型。
@@ -156,7 +156,7 @@
 - 基于先验概率求得的**反向条件概率**，形式上与条件概率相同（若 `P(X|Y)` 为正向，则 `P(Y|X)` 为反向）
 
 **贝叶斯公式**
-<div align="center"><img src="http://latex.codecogs.com/gif.latex?P(Y|X) = \frac {P(X|Y) * P(Y)}{P(X)}" /></div>
+<div align="center"><a href="http://latex.codecogs.com/gif.latex?P(Y|X) = \frac {P(X|Y) * P(Y)}{P(X)}"></div>
 
 ## Reference
 
