@@ -103,3 +103,7 @@ $ docker run -p 5000:5000 miaowmiaow/webapp:1.1.0
 ```
 
 到此就可以在浏览器中输入 [http://localhost:5000](http://localhost:5000) 就可以使用网页对导入的猫狗图片做预测了。
+
+下图为预测的效果图：
+
+<img src="source/webapp.gif">
