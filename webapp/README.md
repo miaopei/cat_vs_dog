@@ -117,3 +117,4 @@ $ docker run -p 5000:5000 miaowmiaow/webapp:1.1.0
 RUN在Dockerfile构建镜像的过程(Build)中运行，最终被commit的到镜像。
 
 ENTRYPOINT和CMD在容器运行(run、start)时运行。
+
